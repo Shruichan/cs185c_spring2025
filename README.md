@@ -1,15 +1,22 @@
-# Effects of The Panama Canal
+# What would happen if we rotated the earth
 
-This modeling project is an example to demonstrate the approximate scope, files, and organization of a class project for CS 185C.
 
 ## Project Description
-In this project, I will be investigating the effects of the panama canal on both water salinity and average velocity in the areas around it specifically assuming that it is just a canal and not the more blocked multi layer system it is in reality. (Considering changing the project to see what happens if I flip all land on the planet 90 degrees similar to what is described in this video [https://www.youtube.com/watch?v=WH4g1ptJ-70] but am still uncertain). In Particular, I will be investigating the following science question:
 
-*How would the panama canal affect the ocean salinity and current velocity should it be turned into a true canal?*
+In this project, I will be investigating the effects of a hypothetical 90-degree rotation of the Earth along its mantle in which the current equator becomes a meridian and the poles are relocated to what are now equatorial regions. This simulation is inspired by the thought experiment discussed in this video: [https://www.youtube.com/watch?v=WH4g1ptJ-70].
 
-In order to investigate this question, I will construct a small and high resolution model right around the panama canal and some of its surrounding waters and run my model simulation for 2 years with 2 seperate setups: a run where the panama canal is treated as a through straigh and one where it is blocked off (not allowing water to diretly flow through the canal as in the real world. I will be running my experiment from 2008 to 2010. I anticipate some extra salinity on the pacific ocean side of the canal as the atlantic ocean is more saline than the pacific and the bay in that area is at higher elevation likely leading to flow going from the atlantic to the pacific.
+In particular, I will be investigating the following science question:
 
-For the initial conditions of the model I will import the ECCO version 5 model starting from january 2008. I will also be constructing a boundary for the model using gebco. In order to analyze the results I will track the changes in, velocity, salinity, and temparatue over time throughout the model, and use tools like matplotlib and moviepy in order to visualize the changes in the ocean over time, and compare them to one another.
+*How would a 90-degree rotation of the Earth affect global ocean salinity, temperature, and current velocity patterns?*
+
+To investigate this question, I will generate a modified Earth topography by rotating a current bathymetry file and coarsening it for easier model running. Using this new orientation, I will configure a global ocean circulation model and run simulations under the new geography. Specifically, I plan to run the model into the future as I will be using the latest GEBCO dataset for the rotated bathymetry
+
+In order to analyze the results I will track the changes in, velocity, salinity, and temparatue over time throughout the model, and use tools like matplotlib and moviepy in order to visualize the changes in the ocean over time, and compare them to one another.
+
+This simulation will help explore how drastically the continents and earth land configuration affects life as we know it and will provide good insight as to what would happen ecologically as well should the earth magically get rotated.
+
+
+
 
 
 ## Reproducing Model Results
@@ -22,17 +29,12 @@ The following steps outline how to construct the model files, configure and run 
 Several input files need to be created to run the model. Generate the following list of files using the notebooks indicated in paratheses:
 - Model Grid (notebooks/Creating the Model Grid.ipynb)
 - Bathymetry (notebooks/Creating the Bathymetry.ipynb)
-- Initial Conditions (notebooks/Creating the Initial Conditions.ipynb)
-- External Forcing Conditions (notebooks/Creating the External Forcing Conditions.ipynb)
-- Boundary Conditions (notebooks/Creating the Boundary Conditions.ipynb)
+- Initial Conditions (notebooks/Creating the Initial Conditions.ipynb) namely S_IC and T_IC . bin make sure to replace lev_sss and lev_sst.bin in your input directoru
 The model files should be placed into the  `input` directory.
 
 ### Step 2: Add files to the computing cluster
-Once the input files have been created, the model files can be transferred to the computing cluster. Begin by cloning a copy of [MITgcm](https://github.com/MITgcm/MITgcm) into your scratch directory and make a folder for the configuration, .e.g.
-```
-mkdir MITgcm/configurations/ca_upwelling
-```
-Then, use the `scp` command to send the `code`, `input`, and `namelist` directories to your configuration directory. 
+Once the input files have been created, the model files can be transferred to the computing cluster. Begin by cloning a copy of [MITgcm](https://github.com/MITgcm/MITgcm) into your scratch directory.
+Then navigate to the input direcectory of tutorial_global_oce_latlon in the verification folder. And replace the bathymetry file with the rotated one you generated and replace lev_sss and lev_sst .bin with the rotated initial condition files.
 
 ### Step 3: Compile the model
 Once all of the files are on the computing cluster, the model can be compiled. Make a `build` directory in the configuration directory and run the following lines:
@@ -48,14 +50,12 @@ After the compilation is complete, run the model with the wind. Move to the run 
 sbatch cs185c.slm
 ```
 
-### Step 4.2: Run the model without wind
-Next, run the model without wind to complete the experiment. Again, link everything from `input` and `code` to a directory called `run_no_wind`. Then, edit the `data.exf` file to point to the modified wind files (see the Creating the External Forcing Conditions.ipynb notebook for details). Then, submit the job script again to rerun the model.
 
 ### Step 5: Analyze the Results
 There are two notebooks provided for analysis:
 1. Analyzing Model Results
 
-   This notebook is provided to have a quick look at spatial and temporal variations in the temperature field in the model with wind. It also generates the visualization provided in the figures directory.
+   Currently there are no model results however we can make predictions as to what will happen.
    
 2. Answering the Science Question
    
