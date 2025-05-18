@@ -59,4 +59,5 @@ There are two notebooks provided for analysis:
    
 2. Answering the Science Question
    
-   This notebooks provided some analysis plot to address the science question posed above.
+   What will likely end up happening should we see this is that ice will form slowly at the poles though sea levels will likely rise due to the melting of the ice caps which are now at the equator. Wind velocities in the gulf of mexico will  likely increase as it is now significantly further south and right in the middle of the polar jet stream. while ocean temparatures will likely follow a similar pattern to now just with significantly more enclosed tropical seas then the present. There will also likely be a gyre present next to greenland meaning greenland will now see hurricanes.
+   
