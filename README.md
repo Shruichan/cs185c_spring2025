@@ -55,7 +55,7 @@ sbatch cs185c.slm
 There are two notebooks provided for analysis:
 1. Analyzing Model Results
 
-   Currently there are no model results however we can make predictions as to what will happen.
+   From the model results which you can find visualized int he modeldebugging directory both as videos and as plots in the datavisualizer.ipynb. It seems that we still see consistent upwelling along the coast and that jetstreams have remained in their normal places. The most interesting thing we see however is the rapid warming of antarctica when looking at the etan graph, antarcitca rapidly undergoes temparature change reflecting its new equatorial position, I would also not be surprised if it was this massive and quick change in temparature that caused MITGCM to abort the experiment
    
 2. Answering the Science Question
    
